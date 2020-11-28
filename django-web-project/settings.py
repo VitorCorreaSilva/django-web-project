@@ -31,6 +31,8 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'crispy_forms',
+    'users.apps.UsersConfig',
     'museum.apps.MuseumConfig',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -76,11 +78,11 @@ WSGI_APPLICATION = 'django-web-project.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': '',
-        'NAME': '',
-        'USER': '',
-        'PASSWORD': '',
-        'HOST': '',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'dc7rpeno2qf7q4',
+        'USER': 'vdsxgdwsoujfas',
+        'PASSWORD': '05a35517984a93dee67b49f1f405128b0ee6e7c172be377770d2f1da1eb7c0ad',
+        'HOST': 'ec2-52-20-160-44.compute-1.amazonaws.com',
         'PORT': '5432',
     }
 }
@@ -123,3 +125,8 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'
+
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
+
+LOGIN_REDIRECT_URL = 'museum-home'
+LOGIN_URL = 'login'
