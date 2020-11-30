@@ -1,0 +1,14 @@
+{% extends "museum/base.html" %}
+{% block content %}
+  <article class="media content-section">
+    <img class="rounded-circle article-img" src="{{ object.image.url }}">
+    <div class="media-body">
+      <div class="article-metadata">
+        <a class="mr-2" href="#">{{ object.name }}</a>
+        <small class="text-muted">{{ object.birth_date|date:"F d, Y" }}</small>
+      </div>
+      <h2 class="article-title">History</h2>
+      <p class="article-content">{{ object.description }}</p>
+    </div>
+  </article>
+{% endblock content %}

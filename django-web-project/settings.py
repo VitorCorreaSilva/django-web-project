@@ -9,7 +9,7 @@ https://docs.djangoproject.com/en/3.1/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.1/ref/settings/
 """
-
+import os
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -31,6 +31,8 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'crispy_forms',
+    'users.apps.UsersConfig',
     'museum.apps.MuseumConfig',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -76,8 +78,12 @@ WSGI_APPLICATION = 'django-web-project.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'dc7rpeno2qf7q4',
+        'USER': 'vdsxgdwsoujfas',
+        'PASSWORD': '05a35517984a93dee67b49f1f405128b0ee6e7c172be377770d2f1da1eb7c0ad',
+        'HOST': 'ec2-52-20-160-44.compute-1.amazonaws.com',
+        'PORT': '5432',
     }
 }
 
@@ -119,3 +125,11 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'
+
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_URL = '/media/'
+
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
+
+LOGIN_REDIRECT_URL = 'museum-home'
+LOGIN_URL = 'login'

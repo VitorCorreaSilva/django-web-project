@@ -1,2 +1,2 @@
 Pipfile
-db.sqlite3
+django-web-project/settings.py

@@ -82,3 +82,30 @@ a.article-title:hover {
 .account-heading {
   font-size: 2.5rem;
 }
+
+.artist-img{
+  height: 100px;
+  width: 100px;
+  margin-top: 10px
+  margin-right: 20px;
+}
+
+.construction-img{
+  height: 220px;
+  width: 140px;
+}
+
+.profile-img{
+  height: 100px;
+  width: 100px;
+  margin-bottom: 15px;
+}
+
+.text-profile{
+  margin-bottom: -0.5rem;
+  margin-top: 30px;
+}
+
+.text-profile-logged-out{
+  margin-left: 25px;
+}

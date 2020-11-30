@@ -1,0 +1,16 @@
+{% extends "museum/base.html" %}
+{% block content %}
+	{% for event in events %}     
+    <article class="media content-section">
+      <img class="rounded-circle article-img" src="{{ event.author.profile.image.url }}">
+      <div class="media-body">
+        <div class="article-metadata">
+          <a class="mr-2" href="{% url 'profile' %}">{{ event.author.username }}</a>
+          <small class="text-muted">{{ event.date_created |date:"F d, Y" }}</small>
+        </div>
+        <h2><a class="article-title" href="{% url 'museum-event-detail' event.id %}">{{ event.name }} - {{ event.event_date |date:"F d, Y" }}</a></h2>
+        <p class="article-content">{{ event.description }}</p>
+      </div>
+    </article>     
+  {% endfor %}  
+{% endblock %}
