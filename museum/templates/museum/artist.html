@@ -1,0 +1,15 @@
+{% extends "museum/base.html" %}
+{% block content %}
+	{% for artist in artists %}     
+		<article class="media content-section">
+		  <img class="rounded-circle article-img" src="{{ artist.image.url }}">
+		  <div class="media-body">
+		    <div class="article-metadata">
+		      <a class="mr-2" href="{% url 'profile' %}">{{ artist.name }}</a>
+		      <small class="text-muted">{{ artist.birth_date |date:"F d, Y" }}</small>
+		    </div>
+
+		  </div>
+		</article>     
+	{% endfor %} 
+{% endblock %}
