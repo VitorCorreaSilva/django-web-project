@@ -94,3 +94,18 @@ a.article-title:hover {
   height: 220px;
   width: 140px;
 }
+
+.profile-img{
+  height: 100px;
+  width: 100px;
+  margin-bottom: 15px;
+}
+
+.text-profile{
+  margin-bottom: -0.5rem;
+  margin-top: 30px;
+}
+
+.text-profile-logged-out{
+  margin-left: 25px;
+}

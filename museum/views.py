@@ -1,13 +1,7 @@
 from django.shortcuts import render
 from .models import Construction, Event, Artist
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
-from django.views.generic import (
-    ListView,
-    DetailView,
-    CreateView,
-    UpdateView,
-    DeleteView
-)
+from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 
 
 def home(request):
@@ -16,28 +10,9 @@ def home(request):
 	}
 	return render(request, 'museum/home.html', context)
 
-def construction(request):
-	context = {
-		'constructions': Construction.objects.all()
-	}
-	return render(request, 'museum/construction.html', context)
-
-def artist(request):
-	context = {
-		'artists': Artist.objects.all()
-	}
-	return render(request, 'museum/artist.html', context)
 
 def about(request):
 	return render(request, 'museum/about.html', {'title':'about'})
-
-
-
-def event(request):
-	context = {
-		'events': Event.objects.all()
-	}
-	return render(request, 'museum/event.html', context)
 
 
 class EventListView(ListView):
@@ -84,3 +59,25 @@ class EventDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
         if self.request.user == event.author:
             return True
         return False
+
+
+class ArtistListView(ListView):
+    model = Artist
+    template_name = 'museum/artist.html'  # <app>/<model>_<viewtype>.html
+    context_object_name = 'artists'
+    ordering = ['-birth_date']
+
+
+class ArtistDetailView(DetailView):
+    model = Artist
+
+
+class ConstructionListView(ListView):
+    model = Construction
+    template_name = 'museum/construction.html'  # <app>/<model>_<viewtype>.html
+    context_object_name = 'constructions'
+    ordering = ['-creation_date']
+
+
+class ConstructionDetailView(DetailView):
+    model = Construction

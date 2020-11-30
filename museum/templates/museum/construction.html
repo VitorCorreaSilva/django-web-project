@@ -8,7 +8,7 @@
 				</div>
 				<div class="col-md-8">
 					<div class="card-body">
-						<h5><a class="card-title" href="#">{{ construction.name }}</a></h5>
+						<h5><a class="card-title" href="{% url 'museum-construction-detail' construction.id %}">{{ construction.name }}</a></h5>
 						<p class="card-text">{{ construction.history | slice:"0:255" }}...</p>
 						<p class="card-text"><small class="text-muted">By {{ construction.artist }} on {{ construction.creation_date }}</small></p>
 					</div>

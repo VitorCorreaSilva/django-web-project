@@ -6,22 +6,23 @@ from PIL import Image
 
 
 class Artist(models.Model):
-	image = models.ImageField(default='default.jpg', upload_to='artist_pics')
-	name = models.CharField(max_length=100)
-	birth_date = models.DateField()
+    image = models.ImageField(default='default.jpg', upload_to='artist_pics')
+    name = models.CharField(max_length=100)
+    description = models.TextField(default="")
+    birth_date = models.DateField()
 
-	def __str__(self):
-		return self.name
+    def __str__(self):
+    	return self.name
 
-	def save(self, *args, **kwargs):
-		super(Artist, self).save(*args, **kwargs)
+    def save(self, *args, **kwargs):
+    	super(Artist, self).save(*args, **kwargs)
 
-		img = Image.open(self.image.path)
+    	img = Image.open(self.image.path)
 
-		if img.height > 300 or img.width > 300:
-			output_size = (300, 300)
-			img.thumbnail(output_size)
-			img.save(self.image.path)
+    	if img.height > 300 or img.width > 300:
+    		output_size = (300, 300)
+    		img.thumbnail(output_size)
+    		img.save(self.image.path)
 
 
 class Construction(models.Model):

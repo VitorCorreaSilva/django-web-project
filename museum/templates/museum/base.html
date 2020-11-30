@@ -27,7 +27,6 @@
 	      </button>
 	      <div class="collapse navbar-collapse" id="navbarToggle">
 	        <div class="navbar-nav mr-auto">
-	          <a class="nav-item nav-link" href="{% url 'museum-home' %}">Home</a>
 	          <a class="nav-item nav-link" href="{% url 'museum-construction' %}">Constructions</a>
 	          <a class="nav-item nav-link" href="{% url 'museum-artist' %}">Artists</a>
 	          <a class="nav-item nav-link" href="{% url 'museum-event' %}">Events</a>
@@ -62,15 +61,27 @@
 		</div>
 	    <div class="col-md-4">
 			<div class="content-section">
-				<h3>Our Sidebar</h3>
-				<p class='text-muted'>You can put any information here you'd like.
-					<ul class="list-group">
-						<li class="list-group-item list-group-item-light">Latest Posts</li>
-						<li class="list-group-item list-group-item-light">Announcements</li>
-						<li class="list-group-item list-group-item-light">Calendars</li>
-						<li class="list-group-item list-group-item-light">etc</li>
-				</ul>
-				</p>
+				<div class="row">
+					{% if user.is_authenticated %}
+						<div class="col" >
+	              			<h3 class="text-profile">Hello {{ user.username }}</h3>
+							<small>You are logged in!</small>
+			            </div>
+			            <div class="col">
+							<img src="{{ user.profile.image.url }}" class="rounded-circle profile-img">
+						</div>
+						<ul class="list-group">
+							<li class="list-group-item list-group-item-light"><a>Latest Posts</a></li>
+							<li class="list-group-item list-group-item-light">Announcements</li>
+							<li class="list-group-item list-group-item-light">Calendars</li>
+						</ul>
+					{% else %}
+						<div class="text-profile-logged-out">
+							<h3>Hello! Log in or register</h3>
+		                </div>
+		            {% endif %}
+				</div>
+				
 			</div>
         </div>
 	  </div>
