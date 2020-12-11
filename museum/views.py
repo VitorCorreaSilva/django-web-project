@@ -1,7 +1,8 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from .models import Construction, Event, Artist
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
+from .models import User
 
 
 def home(request):
@@ -81,3 +82,13 @@ class ConstructionListView(ListView):
 
 class ConstructionDetailView(DetailView):
     model = Construction
+
+
+class UserEventListView(ListView):
+    model = Event
+    template_name = 'museum/user_events.html'  # <app>/<model>_<viewtype>.html
+    context_object_name = 'events'
+
+    def get_queryset(self):
+        user = get_object_or_404(User, username=self.kwargs.get('username'))
+        return Event.objects.filter(author=user).order_by('-event_date')
