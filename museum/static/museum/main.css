@@ -13,9 +13,16 @@ ul {
 }
 
 .bg-steel {
-  background-color: #5f788a;
+  /*background-color: #5f788a;*/
+  background-image: url("../../../media/bruce-warrington-oGSCKjhcJ9o-unsplash.jpg");
+  background-repeat: no-repeat;
+  background-size:cover;
+  background-position:0px,0px,15px,0px;
 }
-
+.nav-item{
+  text-shadow: 1px 1px 1px #000,
+  -1px 1px 1px #000, 1px -1px 1px #000, -1px -1px 1px #000;
+}
 .site-header .navbar-nav .nav-link {
   color: #cbd5db;
 }
@@ -23,17 +30,25 @@ ul {
 .site-header .navbar-nav .nav-link:hover {
   color: #ffffff;
 }
+#logo{
+  height: 60px;
+ 
+}
 
 .site-header .navbar-nav .nav-link.active {
   font-weight: 500;
+  
 }
-
 .content-section {
+  margin-top: 30px;
   background: #ffffff;
   padding: 10px 20px;
   border: 1px solid #dddddd;
   border-radius: 3px;
   margin-bottom: 20px;
+}
+.card, .about{
+  margin-top: 30px;
 }
 
 .article-title {
@@ -86,7 +101,7 @@ a.article-title:hover {
 .artist-img{
   height: 100px;
   width: 100px;
-  margin-top: 10px
+  margin-top: 10px;
   margin-right: 20px;
 }
 
