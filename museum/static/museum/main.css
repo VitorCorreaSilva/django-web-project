@@ -47,6 +47,11 @@ ul {
   border-radius: 3px;
   margin-bottom: 20px;
 }
+
+.content-home {
+  margin-top: 30px;
+}
+
 .card, .about{
   margin-top: 30px;
 }
