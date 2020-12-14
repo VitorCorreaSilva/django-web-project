@@ -3,6 +3,7 @@ from . import views
 from .views import EventListView, EventDetailView, EventCreateView, EventUpdateView, EventDeleteView
 from .views import ArtistListView, ArtistDetailView
 from .views import ConstructionListView, ConstructionDetailView
+from .views import UserEventListView
 
 urlpatterns = [
     path('', views.home, name='museum-home'),
@@ -12,6 +13,8 @@ urlpatterns = [
     path('event/new/', EventCreateView.as_view(), name='museum-event-create'),
     path('event/<int:pk>/update/', EventUpdateView.as_view(), name='museum-event-update'),
     path('event/<int:pk>/delete/', EventDeleteView.as_view(), name='museum-event-delete'),
+
+    path('user/<str:username>/', UserEventListView.as_view(), name='user-events'),
     
     path('artist/', ArtistListView.as_view(), name='museum-artist'),
     path('artist/<int:pk>/', ArtistDetailView.as_view(), name='museum-artist-detail'),
